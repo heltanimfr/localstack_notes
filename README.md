@@ -28,3 +28,9 @@ Call AWS lambda w/ a specific json event structure. Store output results in outp
 > awslocal lambda invoke --function-name originproxy \
 --payload '{ "path":"/out/v1/a398a27b3926403ca9d0b02cfabd2b3b/index.m3u8", "queryStringParameters" : ""}' \
 output.txt
+
+
+# References
+How to install localstack CLI : https://docs.localstack.cloud/getting-started/installation/
+Localstack Auth token setup : https://docs.localstack.cloud/getting-started/auth-token/
+
