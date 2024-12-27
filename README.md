@@ -1,7 +1,9 @@
 # LocalStack
 Install localstack docker
 > docker pull localstack/localstack
-> docker run --rm -p 4566:4566 -v /var/run/docker.sock:/var/run/docker.sock localstack/localstack
+
+Launch docker : open port, mount points (/mnt/share will store the expected zip file)
+> docker run --rm -p 4566:4566 -v /var/run/docker.sock:/var/run/docker.sock -v ${PWD}:/mnt/share/ localstack/localstack
 
 # LocalStack Docker
 Start docker from already executed docker container
@@ -11,7 +13,7 @@ Create AWS lambda function w/ timeout, zip, hanlder, role & env variables settin
 > awslocal lambda create-function --function-name originproxy \
 --runtime python3.12 \
 --timeout 60 \
---zip-file fileb://hewm.zip \
+--zip-file fileb://file.zip \
 --handler hewmorigin_lambda.lambda_handler \
 --role arn:aws:iam::000000000000:role/irrelevant \
 --environment Variables="{ORIGIN_URL=https://c223d9abb67d57c7.mediapackage.eu-west-1.amazonaws.com}"
